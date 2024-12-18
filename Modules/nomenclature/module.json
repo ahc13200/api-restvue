@@ -1,0 +1,14 @@
+{
+    "name": "nomenclature",
+    "alias": "nomenclature",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\nomenclature\\Providers\\NomenclatureServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
+

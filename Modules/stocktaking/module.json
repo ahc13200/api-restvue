@@ -1,0 +1,14 @@
+{
+    "name": "stocktaking",
+    "alias": "stocktaking",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\stocktaking\\Providers\\StocktakingServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
+

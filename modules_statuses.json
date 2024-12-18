@@ -1,0 +1,7 @@
+{
+  "nomenclature": true,
+  "stocktaking": true,
+  "security": true,
+  "admin": true,
+  "restaurant": true
+}

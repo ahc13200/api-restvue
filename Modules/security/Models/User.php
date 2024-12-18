@@ -1,0 +1,226 @@
+<?php
+/**Generate by ASGENS
+ * @author Amanda
+ * @date Fri May 31 07:56:17 GMT-04:00 2024
+ * @time Fri May 31 07:56:17 GMT-04:00 2024
+ */
+
+
+namespace Modules\security\Models;
+
+
+use App\Helpers\Utils;
+use App\Models\BaseModel;
+use App\Observers\HashPasswordObserver;
+use App\Scopes\NonDeletedScope;
+use Exception;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
+use Modules\admin\Models\Client;
+use Modules\admin\Models\Worker;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+/**
+ * Este es la clase modelo para la tabla security.users.
+ *
+ * Los siguientes son los campos de la tabla 'security.users':
+ * @property integer $id
+ * @property string $username
+ * @property string $email
+ * @property string $password
+ *
+ * Los siguientes son las relaciones de este modelo :
+ * @property Worker $worker
+ * @property Client $client
+ * @property Role[] $array_roles
+ * @property Role_user [] $array_user_role
+ **/
+#[ObservedBy([HashPasswordObserver::class])]
+class User extends BaseModel implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract,
+    JWTSubject
+{
+    use \Illuminate\Auth\Authenticatable, \Illuminate\Foundation\Auth\Access\Authorizable, \Illuminate\Auth\Passwords\CanResetPassword, \Illuminate\Auth\MustVerifyEmail, HasFactory, Notifiable;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'security.users';
+
+    /**
+     * The connection name for the model.
+     *
+     * @var string|null
+     */
+    protected $connection = 'db';
+
+    /**
+     * The primarykey associated with the table-model.
+     *
+     * @var integer
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+
+    public $timestamps = true;
+
+
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'integer';
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = ['password', 'created_at', 'updated_at'];
+
+    const RELATIONS = ['worker', 'client', 'array_roles', 'array_user_role'];
+
+    /**
+     * The number of models to return for pagination.
+     *
+     * @var int
+     */
+    protected $perPage = 15;
+
+    protected $appends = [];
+
+    /**
+     * Model Class Name
+     *
+     * @var string
+     */
+    const MODEL = 'User';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'username',
+        'email',
+        'password',
+        'updated_at'
+    ];
+
+
+    /**
+     *
+     * Get worker
+     */
+    public function worker()
+    {
+        return $this->hasOne(Worker::class, 'user_id');
+    }
+
+
+    /**
+     *
+     * Get client
+     */
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'user_id', 'id');
+    }
+
+    /**
+     *
+     * Get array_role_worker
+     */
+    public function array_role_user()
+    {
+        return $this->hasMany(Role_user::class, 'user_id', 'id');
+    }
+
+
+    /* Many to many relationships */
+
+    /**
+     *
+     * Get array_role
+     */
+    /**
+     * @return BelongsToMany of Role
+     */
+    public function array_role()
+    {
+        return $this->belongsToMany(Role::class, 'security.role_users', 'user_id', 'role_id')
+            ->as('role_workers')
+            ->withPivot(Role_user::columns)
+            ->withGlobalScope('non_deleted', new NonDeletedScope());
+    }
+
+
+    protected function rules($scenario = 'create')
+    {
+        $rules = include(__DIR__ . '/../Rules/UserRule.php');
+        if (!isset($rules[$scenario]))
+            throw new Exception('Scenario ' . $scenario . ' not exist');
+        return $rules[$scenario];
+    }
+
+
+    public function getAuthPassword()
+    {
+        return $this->attributes['password'];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getJWTCustomClaims()
+    {
+        return [
+            'id' => $this->id,
+            'username' => $this->username,
+            'worker' => $this->worker,
+            'roles' => $this->array_role()->select(['roles.id', 'roles.name'])->get()
+        ];
+    }
+
+    protected static function boot()
+    {
+        parent::boot(); // TODO: Change the autogenerated stub
+
+        $array_role = Utils::json_to_string(request()->get('array_role'));
+
+        static::created(function (User $model) use ($array_role) {
+            //roles
+            $model->array_role()->attach($array_role);
+        });
+
+        static::updated(function (User $model) use ($array_role) {
+            $model->array_role_user()->whereNotIn('role_id', $array_role)->delete();
+            foreach ($array_role as $role) {
+                $model->array_role_user()->updateOrCreate(['role_id' => $role], ['user_id' => $model->id]);
+            }
+        });
+    }
+}
