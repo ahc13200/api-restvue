@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Carlos Rodríguez",
+    "phone": "+53 55556789",
+    "address": "Calle 30 #300",
+    "province": "La Habana",
+    "city": "Centro Habana",
+    "registered_in": "administración"
+  },
+  {
+    "id": 2,
+    "name": "Luis González",
+    "phone": "+53 55559876",
+    "address": "Calle 50 #500",
+    "province": "La Habana",
+    "city": "Playa",
+    "registered_in": "administración"
+  },
+  {
+    "id": 3,
+    "name": "Ana López",
+    "phone": "+53 55554321",
+    "address": "Calle 40 #400",
+    "province": "La Habana",
+    "city": "Habana Vieja",
+    "registered_in": "shopping"
+  },
+  {
+    "id": 4,
+    "name": "María García",
+    "phone": "+53 55551234",
+    "address": "Calle 20 #200",
+    "province": "La Habana",
+    "city": "Miramar",
+    "registered_in": "administración"
+  },
+  {
+    "id": 5,
+    "name": "Juan Pérez",
+    "phone": "+53 55555555",
+    "address": "Calle 10 #100",
+    "province": "La Habana",
+    "city": "Vedado",
+    "registered_in": "shopping"
+  },
+  {
+    "id": 6,
+    "name": "Rolando Ruiz",
+    "phone": "+53 54678912",
+    "address": "Calle 10 y vento",
+    "province": "La Habana",
+    "city": "Boyeros",
+    "registered_in": "administración"
+  },
+  {
+    "id": 7,
+    "name": "Amanda Hdez",
+    "phone": "+53 54759574",
+    "address": "Ave Vento e/ Embil y Entrada",
+    "province": "La Habana",
+    "city": "Altahabana",
+    "registered_in": "administración"
+  }
+]

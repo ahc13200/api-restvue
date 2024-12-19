@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "category_id": null,
+    "name": "Vajilla",
+    "description": "Artículos utilizados para servir comida y bebida."
+  },
+  {
+    "id": 2,
+    "category_id": null,
+    "name": "Cubiertos",
+    "description": "Utensilios de cocina utilizados para comer."
+  },
+  {
+    "id": 3,
+    "category_id": 1,
+    "name": "Vasos",
+    "description": "Recipientes para beber líquidos."
+  },
+  {
+    "id": 4,
+    "category_id": 1,
+    "name": "Platos",
+    "description": "Superficies planas para servir alimentos."
+  },
+  {
+    "id": 5,
+    "category_id": 2,
+    "name": "Tenedores",
+    "description": "Utensilios con púas utilizados para pinchar alimentos."
+  },
+  {
+    "id": 6,
+    "category_id": 2,
+    "name": "Cuchillos",
+    "description": "Utensilios afilados utilizados para cortar alimentos."
+  },
+  {
+    "id": 7,
+    "category_id": 2,
+    "name": "Cucharas",
+    "description": "Utensilios con forma de cuenco utilizados para comer líquidos o alimentos en pequeñas porciones."
+  },
+  {
+    "id": 8,
+    "category_id": 3,
+    "name": "Copas",
+    "description": "Vasos especiales para beber vino o licores."
+  },
+  {
+    "id": 9,
+    "category_id": 3,
+    "name": "Tazas",
+    "description": "Vasos pequeños con asa utilizados para beber bebidas calientes."
+  },
+  {
+    "id": 12,
+    "category_id": null,
+    "name": "Bebidas",
+    "description": "Bebida alcohólicas"
+  },
+  {
+    "id": 13,
+    "category_id": 12,
+    "name": "Vino Blanco Firlandéz",
+    "description": "Coba de vinos blancos"
+  },
+  {
+    "id": 14,
+    "category_id": null,
+    "name": "Lácteaos",
+    "description": "Productos lácteaos"
+  },
+  {
+    "id": 15,
+    "category_id": 14,
+    "name": "Quesos",
+    "description": "Diferentes tipos de quesos"
+  },
+  {
+    "id": 19,
+    "category_id": null,
+    "name": "Pescados",
+    "description": "Productos de pescado"
+  },
+  {
+    "id": 20,
+    "category_id": null,
+    "name": "Carnes",
+    "description": "Diferentes tipos de carnes"
+  },
+  {
+    "id": 21,
+    "category_id": 20,
+    "name": "Carne de res",
+    "description": "Todo tipo de producto proveniente de la res"
+  },
+  {
+    "id": 22,
+    "category_id": 20,
+    "name": "Pollo",
+    "description": "Todo tipo de producto proveniente del pollo"
+  },
+  {
+    "id": 23,
+    "category_id": null,
+    "name": "Panes y Dulces",
+    "description": "Tipos de panes y de dulces"
+  },
+  {
+    "id": 24,
+    "category_id": null,
+    "name": "Pure de tomate",
+    "description": "Todo en pastas de tomate"
+  },
+  {
+    "id": 25,
+    "category_id": null,
+    "name": "Granos",
+    "description": "Todo tipo de tubérculso y granos"
+  },
+  {
+    "id": 26,
+    "category_id": null,
+    "name": "Frutas de estación",
+    "description": "Todo en frutas según estación"
+  }
+]

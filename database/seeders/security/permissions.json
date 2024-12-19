@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "permission": "Acceso al módulo de administración",
+    "description": "Ver cada una de las funcinalidades de dicho modulo",
+    "module": "admin",
+    "event": "all"
+  },
+  {
+    "id": 1,
+    "permission": "Acceso al módulo Security",
+    "description": "Tener acceso para gestionar de forma completa todas las funcionalidades del modulo Security",
+    "module": "security",
+    "event": "all"
+  },
+  {
+    "id": 3,
+    "permission": "Acceso al modulo Inventario",
+    "description": "Ver modulo entero",
+    "module": "stocktaking",
+    "event": "all"
+  },
+  {
+    "id": 4,
+    "permission": "Acceso al modulo Restaurante",
+    "description": "Ver cada una de las funcinalidades de dicho modulo",
+    "module": "restaurant",
+    "event": "all"
+  },
+  {
+    "id": 5,
+    "permission": "Acceso al modulo Nomencladores",
+    "description": "Ver cada una de las funcinalidades de dicho modulo",
+    "module": "nomenclature",
+    "event": "all"
+  },
+  {
+    "id": 6,
+    "permission": "Acceso al Dashboard",
+    "description": "Ver estadísticas del sistema",
+    "module": "dashboard",
+    "event": "list"
+  }
+]

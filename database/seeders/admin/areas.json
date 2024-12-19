@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Salón",
+    "code": "S1",
+    "description": "Salón dentro del restaurante"
+  },
+  {
+    "id": 2,
+    "name": "Louncher",
+    "code": "C2",
+    "description": "Centro de creacion de panes y pizzas"
+  },
+  {
+    "id": 3,
+    "name": "Almacén",
+    "code": "A1",
+    "description": "Almacén"
+  },
+  {
+    "id": 4,
+    "name": "Terraza",
+    "code": "T1",
+    "description": "Blacón de arriba"
+  },
+  {
+    "id": 5,
+    "name": "Salón 2",
+    "code": "S2",
+    "description": "Salon de afuera"
+  },
+  {
+    "id": 6,
+    "name": "Area de fumar",
+    "code": "AF1",
+    "description": "Area para fumar"
+  },
+  {
+    "id": 7,
+    "name": "Cocina",
+    "code": "C1",
+    "description": "Cocina principal"
+  },
+  {
+    "id": 8,
+    "name": "Salón de invitados",
+    "code": "S3",
+    "description": "Salón para los invitados de una actividad especifica, solo es alquilado"
+  }
+]

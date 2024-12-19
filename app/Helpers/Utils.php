@@ -3,6 +3,8 @@
 namespace App\Helpers;
 
 use Modules\stocktaking\Models\Warehouse_product;
+use JsonMachine\Items;
+use JsonMachine\JsonDecoder\ExtJsonDecoder;
 
 class Utils
 {
@@ -27,5 +29,14 @@ class Utils
     public static function json_to_string($value)
     {
         return is_string($value) ? json_decode($value, true) : $value;
+    }
+
+
+    public static function loadFromJson($class, $address, $id_attribute = "id")
+    {
+        $elements = Items::fromFile($address, ['decoder' => new ExtJsonDecoder(true)]);
+        foreach ($elements as $p) {
+            $class::updateOrCreate(['id' => $p[$id_attribute]], $p);
+        }
     }
 }

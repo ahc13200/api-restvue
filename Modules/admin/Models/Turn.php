@@ -12,6 +12,7 @@ namespace Modules\admin\Models;
 use App\Models\BaseModel;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Este es la clase modelo para la tabla admin.turns.
@@ -98,6 +99,22 @@ class Turn extends BaseModel
         if (!isset($rules[$scenario]))
             throw new Exception('Scenario ' . $scenario . ' not exist');
         return $rules[$scenario];
+    }
+
+    protected function departureTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value ? Carbon::createFromFormat('h:i a', $value)->format('h:i a') : null,
+            set: fn($value) => $value ? Carbon::createFromFormat('H:i:s', $value)->format('H:i:s') : null,
+        );
+    }
+
+    protected function entryTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value ? Carbon::createFromFormat('h:i a', $value)->format('h:i a') : null,
+            set: fn($value) => $value ? Carbon::createFromFormat('H:i:s', $value)->format('H:i:s') : null,
+        );
     }
 
 }

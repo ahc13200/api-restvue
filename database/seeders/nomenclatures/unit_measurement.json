@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Kilogramo",
+    "acronym": "kg"
+  },
+  {
+    "id": 2,
+    "name": "Gramo",
+    "acronym": "g"
+  },
+  {
+    "id": 3,
+    "name": "Libra",
+    "acronym": "lb"
+  },
+  {
+    "id": 4,
+    "name": "Unidad",
+    "acronym": "ud"
+  },
+  {
+    "id": 5,
+    "name": "Litro",
+    "acronym": "L"
+  },
+  {
+    "id": 6,
+    "name": "Mililitro",
+    "acronym": "ml"
+  }
+]

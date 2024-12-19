@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Económico",
+    "description": "Económica del restaurante"
+  },
+  {
+    "id": 2,
+    "name": "Trabajador",
+    "description": "Trabajor del restaurante"
+  },
+  {
+    "id": 3,
+    "name": "Admin",
+    "description": "Administrador del sistema"
+  },
+  {
+    "id": 4,
+    "name": "Gerente",
+    "description": "Representante del restaurante"
+  }
+]

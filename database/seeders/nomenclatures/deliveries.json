@@ -1,0 +1,47 @@
+[
+  {
+    "id": 2,
+    "city": "Altahabana",
+    "amount": 1500.0
+  },
+  {
+    "id": 3,
+    "city": "Playa",
+    "amount": 200.0
+  },
+  {
+    "id": 4,
+    "city": "La Lisa",
+    "amount": 2000.0
+  },
+  {
+    "id": 1,
+    "city": "Vedado",
+    "amount": 350.0
+  },
+  {
+    "id": 5,
+    "city": "Centro Habana",
+    "amount": 150.0
+  },
+  {
+    "id": 6,
+    "city": "Miramar",
+    "amount": 500.0
+  },
+  {
+    "id": 7,
+    "city": "Habana Vieja",
+    "amount": 730.0
+  },
+  {
+    "id": 8,
+    "city": "Boyeros",
+    "amount": 2500.0
+  },
+  {
+    "id": 9,
+    "city": "Marianao",
+    "amount": 430.0
+  }
+]

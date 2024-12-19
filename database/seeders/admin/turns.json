@@ -1,0 +1,23 @@
+[
+  {
+    "id": 3,
+    "code": "T3",
+    "working_day": "Turno de noche",
+    "entry_time": "",
+    "departure_time": ""
+  },
+  {
+    "id": 1,
+    "code": "T1",
+    "working_day": "Turno de día",
+    "entry_time": "",
+    "departure_time": ""
+  },
+  {
+    "id": 5,
+    "code": "T4",
+    "working_day": "Turno de madrugada",
+    "entry_time": "",
+    "departure_time": ""
+  }
+]
