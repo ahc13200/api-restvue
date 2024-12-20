@@ -30,22 +30,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //admin
-        Utils::loadFromJson(Area::class, __DIR__ . '\admin\areas.json', 'id');
-        Utils::loadFromJson(Client::class, __DIR__ . '\admin\clients.json', 'id');
-        Utils::loadFromJson(Turn::class, __DIR__ . '\admin\turns.json', 'id');
+        Utils::loadFromJson(Area::class, __DIR__ . '/admin/areas.json', 'id');
+        Utils::loadFromJson(Client::class, __DIR__ . '/admin/clients.json', 'id');
+        Utils::loadFromJson(Turn::class, __DIR__ . '/admin/turns.json', 'id');
 
         //nomenclatures
-        Utils::loadFromJson(Category::class, __DIR__ . '\nomenclatures\category.json', 'id');
-        Utils::loadFromJson(Coin::class, __DIR__ . '\nomenclatures\coins.json', 'id');
-        Utils::loadFromJson(UnitMeasurement::class, __DIR__ . '\nomenclatures\unit_measurement.json', 'id');
-        Utils::loadFromJson(Delivery::class, __DIR__ . '\nomenclatures\deliveries.json', 'id');
+        Utils::loadFromJson(Category::class, __DIR__ . '/nomenclatures/category.json', 'id');
+        Utils::loadFromJson(Coin::class, __DIR__ . '/nomenclatures/coins.json', 'id');
+        Utils::loadFromJson(UnitMeasurement::class, __DIR__ . '/nomenclatures/unit_measurement.json', 'id');
+        Utils::loadFromJson(Delivery::class, __DIR__ . '/nomenclatures/deliveries.json', 'id');
 
         //security
-        Utils::loadFromJson(User::class, __DIR__ . '\security\users.json', 'id');
-        Utils::loadFromJson(Role::class, __DIR__ . '\security\roles.json', 'id');
-        Utils::loadFromJson(Permission::class, __DIR__ . '\security\permissions.json', 'id');
-        Utils::loadFromJson(Role_user::class, __DIR__ . '\security\role_users.json', 'id');
-        Utils::loadFromJson(Role_permissions::class, __DIR__ . '\security\role_permissions.json', 'id');
+        Utils::loadFromJson(User::class, __DIR__ . '/security/users.json', 'id');
+        Utils::loadFromJson(Role::class, __DIR__ . '/security/roles.json', 'id');
+        Utils::loadFromJson(Permission::class, __DIR__ . '/security/permissions.json', 'id');
+        Utils::loadFromJson(Role_user::class, __DIR__ . '/security/role_users.json', 'id');
+        Utils::loadFromJson(Role_permissions::class, __DIR__ . '/security/role_permissions.json', 'id');
 
 
     }
