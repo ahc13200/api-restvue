@@ -3,12 +3,10 @@
 /public/build
 /public/hot
 /public/storage
+/storage/
 /storage/*.key
 /vendor
 /bootstrap/cache
-/storage/app
-/storage/framework
-/storage/logs
 package-lock.json
 phpunit.xml
 .styleci.yml
