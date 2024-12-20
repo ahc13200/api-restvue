@@ -6,7 +6,9 @@
 /storage/*.key
 /vendor
 /bootstrap/cache
-/storage
+/storage/app
+/storage/framework
+/storage/logs
 package-lock.json
 phpunit.xml
 .styleci.yml
