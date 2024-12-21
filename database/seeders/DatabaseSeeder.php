@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
         Utils::loadFromJson(Area::class, __DIR__ . '/admin/areas.json', 'id');
         Utils::loadFromJson(Client::class, __DIR__ . '/admin/clients.json', 'id');
         Utils::loadFromJson(Turn::class, __DIR__ . '/admin/turns.json', 'id');
-        Utils::loadFromJson(Provider::class, __DIR__ . '/admin/providers.json', 'id');
 
         //nomenclatures
         Utils::loadFromJson(Category::class, __DIR__ . '/nomenclatures/category.json', 'id');
