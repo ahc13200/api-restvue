@@ -11,7 +11,9 @@
     "fax": "555-1315",
     "observations": "Exportación de mariscos frescos",
     "address": "Calle Mariscos 456, Guadalajara",
-    "postal_code": "44100"
+    "postal_code": "44100",
+    "array_contacts": [],
+    "array_products": []
   },
   {
     "id": 2,
@@ -25,7 +27,9 @@
     "fax": "+1 5554321",
     "observations": "Todo en pescados del mar",
     "address": "Calle 10 y cale 34",
-    "postal_code": "12345"
+    "postal_code": "12345",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 3,
@@ -39,7 +43,9 @@
     "fax": "555-2224",
     "observations": "Aceites vegetales de alta calidad",
     "address": "Carretera a Pátzcuaro km 7, Morelia",
-    "postal_code": "58000"
+    "postal_code": "58000",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 4,
@@ -53,7 +59,9 @@
     "fax": "555-1416",
     "observations": "Distribuidores de productos lácteos",
     "address": "Av. Lácteos 789, Monterrey",
-    "postal_code": "64000"
+    "postal_code": "64000",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 5,
@@ -67,7 +75,9 @@
     "fax": "555-1618",
     "observations": "Restaurante gourmet especializado en sabores locales",
     "address": "Calle del Sabor 123, Puebla",
-    "postal_code": "72000"
+    "postal_code": "72000",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 6,
@@ -81,7 +91,9 @@
     "fax": "555-1123",
     "observations": "Especialistas en panes artesanales",
     "address": "Av. Revolución 123, Ciudad de México",
-    "postal_code": "01000"
+    "postal_code": "01000",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 7,
@@ -95,7 +107,9 @@
     "fax": "123-789",
     "observations": null,
     "address": "23 y 12, Vedado",
-    "postal_code": null
+    "postal_code": null,
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 8,
@@ -109,7 +123,9 @@
     "fax": "4567-432",
     "observations": null,
     "address": "Calle 1era y 45",
-    "postal_code": null
+    "postal_code": null,
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 9,
@@ -123,7 +139,9 @@
     "fax": "555-2022",
     "observations": "Productores de vinos artesanales",
     "address": "Ruta del Vino s/n, Ensenada",
-    "postal_code": "22800"
+    "postal_code": "22800",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 10,
@@ -137,7 +155,9 @@
     "fax": "12344",
     "observations": "Helados bien ricos",
     "address": "9na y 34",
-    "postal_code": "103500"
+    "postal_code": "103500",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 11,
@@ -151,7 +171,9 @@
     "fax": "15543212",
     "observations": null,
     "address": "3era y 42",
-    "postal_code": "10800"
+    "postal_code": "10800",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 12,
@@ -165,7 +187,9 @@
     "fax": "555-9102",
     "observations": "Exportadores de frutas tropicales",
     "address": "Blvd. Kukulkan 789, Cancún",
-    "postal_code": "77500"
+    "postal_code": "77500",
+    "array_contacts":  [],
+    "array_products":  []
   },
   {
     "id": 13,
@@ -179,6 +203,8 @@
     "fax": "555-1820",
     "observations": "Café orgánico del sur de México",
     "address": "Calle de los Cafetales 456, Oaxaca",
-    "postal_code": "68000"
+    "postal_code": "68000",
+    "array_contacts":  [],
+    "array_products":  []
   }
 ]
