@@ -69,7 +69,7 @@ class Offer extends BaseModel
      * @var bool
      */
 
-    public $timestamps = false;
+    public $timestamps = true;
 
 
     /**
@@ -90,6 +90,8 @@ class Offer extends BaseModel
 
     protected $appends = ['image_url'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     /**
      * Model Class Name
      *
@@ -105,7 +107,8 @@ class Offer extends BaseModel
         'name',
         'price',
         'image',
-        'description'
+        'description',
+        'updated_at'
     ];
 
     protected $casts = [

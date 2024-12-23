@@ -57,7 +57,7 @@ class Menu extends BaseModel
      * @var bool
      */
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -77,6 +77,8 @@ class Menu extends BaseModel
 
     protected $appends = [];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     /**
      * Model Class Name
      *
@@ -90,7 +92,8 @@ class Menu extends BaseModel
      */
     protected $fillable = [
         'date',
-        'meal_type'
+        'meal_type',
+        'updated_at'
     ];
 
 
