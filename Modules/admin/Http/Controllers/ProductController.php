@@ -21,5 +21,12 @@ class ProductController extends BaseRestController
         $this->middleware('data.transform:' . self::FORM_REQUEST . ',' . $classnamespace);
     }
 
+    public function list()
+    {
+        $products = $this->service->products_list();
+        $result = ['data' => $products];
+        return response()->json($result, 200);
+    }
+
 }
 

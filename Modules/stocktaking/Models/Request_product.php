@@ -10,10 +10,8 @@ namespace Modules\stocktaking\Models;
 
 
 use App\Models\BaseModel;
-
 use Exception;
 use Modules\admin\Models\Product;
-use Modules\admin\Models\Products_view;
 
 /**
  * Este es la clase modelo para la tabla stocktaking.request_products.

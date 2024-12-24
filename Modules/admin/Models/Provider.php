@@ -35,7 +35,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  *
  * Los siguientes son las relaciones de este modelo :
  * @property Provider_product[] $array_provider_product
- * @property Products_view[] $array_products
  * @property Provider_contact[] $array_contacts
  **/
 class Provider extends BaseModel
@@ -146,7 +145,7 @@ class Provider extends BaseModel
      */
     public function array_products()
     {
-        return $this->hasMany(Products_view::class, 'provider_id', 'id');
+        return $this->hasMany(Provider_products_view::class, 'provider_id', 'id');
     }
 
 

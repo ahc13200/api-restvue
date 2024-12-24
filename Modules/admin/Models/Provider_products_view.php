@@ -7,9 +7,9 @@ use Ronu\RestGenericClass\Core\Models\BaseModel;
 
 
 /**
- * Este es la clase modelo para la tabla admin.products_view.
+ * Este es la clase modelo para la tabla admin.provider_products_view.
  *
- * Los siguientes son los campos de la tabla 'admin.products_view':
+ * Los siguientes son los campos de la tabla 'admin.provider_products_view':
  * @property integer $id
  * @property integer $provider_id
  * @property integer $product
@@ -23,14 +23,14 @@ use Ronu\RestGenericClass\Core\Models\BaseModel;
  *  Los siguientes son las relaciones de este modelo :
  * @property Provider $provider
  **/
-class Products_view extends BaseModel
+class Provider_products_view extends BaseModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'admin.products_view';
+    protected $table = 'admin.provider_products_view';
 
     /**
      * The connection name for the model.
@@ -78,7 +78,7 @@ class Products_view extends BaseModel
      *
      * @var string
      */
-    const MODEL = 'Products_view';
+    const MODEL = 'Provider_products_view';
     /**
      * The attributes that are mass assignable.
      *
