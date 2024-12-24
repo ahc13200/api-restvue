@@ -17,7 +17,7 @@ return new class extends Migration {
         $db = \Illuminate\Support\Facades\DB::connection('db');
         $db->statement("DROP VIEW IF EXISTS admin.products_view CASCADE;");
 
-        $db->statement("CREATE OR REPLACE VIEW admin.products_view(id,provider_id,name,code,image,quantity,unit_acronym) as 
+        $db->statement("CREATE OR REPLACE VIEW admin.products_view(id,name,code,image,quantity,unit_acronym) as 
          SELECT products.id,
     products.name,
     products.code,
