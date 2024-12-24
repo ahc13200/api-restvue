@@ -1,34 +1,31 @@
 <?php
 
-namespace Modules\stocktaking\Models;
+namespace Modules\admin\Models;
 
-use Ronu\RestGenericClass\Core\Models\BaseModel;
+use App\Models\BaseModel;
+use Illuminate\Support\Facades\Storage;
 
 
 /**
- * Este es la clase modelo para la tabla stocktaking.invoice_products_view.
+ * Este es la clase modelo para la tabla admin.products_view.
  *
- * Los siguientes son los campos de la tabla 'stocktaking.invoice_products_view':
+ * Los siguientes son los campos de la tabla 'admin.products_view':
  * @property integer $id
- * @property integer $invoice_id
  * @property string $name
  * @property string $code
- * @property string $quantity
- * @property float $price
- * @property string $coin
- * @property string $unit
+ * @property string $image
+ * @property integer $quantity
+ * @property string $unit_acronym
  *
- *  Los siguientes son las relaciones de este modelo :
- * @property Invoice $invoice
  **/
-class Invoice_products_view extends BaseModel
+class Product_view extends BaseModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'stocktaking.invoice_products_view';
+    protected $table = 'admin.products_view';
 
     /**
      * The connection name for the model.
@@ -60,7 +57,7 @@ class Invoice_products_view extends BaseModel
      */
     protected $keyType = 'integer';
 
-    const RELATIONS = ['invoice'];
+    const RELATIONS = [];
 
     /**
      * The number of models to return for pagination.
@@ -69,34 +66,32 @@ class Invoice_products_view extends BaseModel
      */
     protected $perPage = 15;
 
-    protected $appends = [];
+    protected $appends = ['image_url'];
 
     /**
      * Model Class Name
      *
      * @var string
      */
-    const MODEL = 'Providerproducts_view';
+    const MODEL = 'Products_view';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'invoice_id',
         'name',
         'code',
+        'image',
         'quantity',
-        'price',
-        'coin',
-        'unit'
+        'unit_acronym'
     ];
 
-    /**
-     * Get the invoice
-     */
-    public function invoice()
+
+    public function getImageUrlAttribute()
     {
-        return $this->hasOne(Invoice::class, 'invoice_id', 'id');
+        return Storage::disk('public')->url($this->image);
     }
+
+
 }

@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api', 'checkAccess']],
     Route::get('product/export_excel', 'ProductController@export_excel');
     Route::get('product/export_pdf', 'ProductController@export_pdf');
     Route::delete('product/delete_by_id', 'ProductController@deleteById');
+    Route::get('product/list_product', 'ProductController@list');
     Route::resource('product', 'ProductController');
 
 
