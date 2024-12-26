@@ -137,6 +137,6 @@ class Worker_user_view extends BaseModel
 
     public function getImageUrlAttribute()
     {
-        return Storage::disk('public')->url($this->image);
+        return $this->image ? Storage::disk('public')->url($this->image) : null;
     }
 }

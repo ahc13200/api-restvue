@@ -27,7 +27,9 @@ class ReportsService
     public function products_with_low_stock()
     {
         return Warehouse_product::query()->where('quantity', '<=', 50)
-            ->get()->map(function ($item) {
+            ->orderByDesc('quantity')
+            ->get()
+            ->map(function ($item) {
                 return [
                     'product' => $item->product->name,
                     'stock' => $item->quantity,

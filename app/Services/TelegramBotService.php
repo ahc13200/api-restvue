@@ -14,7 +14,7 @@ class TelegramBotService
     {
         switch ($text) {
             case '/start':
-                $message = "Hola 👋,  pincha el menú a la izquierda para que puedas ver los reportes del día 😄";
+                $message = "Hola 👋,  presiona el menú a la izquierda para que puedas ver los reportes del día 😄";
                 break;
 
             case '/orders_today':
