@@ -5,9 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
-   Foreign Keys Role_permissions table */
-return new class extends Migration
-{
+ * Foreign Keys Role_permissions table */
+return new class extends Migration {
 
     /**
      * Run the migrations.
@@ -20,23 +19,23 @@ return new class extends Migration
         $connection = Schema::connection('db');
         $exist_table = $connection->hasTable('security.role_permissions');
         if ($exist_table) {
-            $foreignkey_list=Schema::getForeignKeys('security.role_permissions');
-            $find=array_search('security_role_permissions_permission_id_foreign', array_column(json_decode(json_encode($foreignkey_list),TRUE), 'name'));
+            $foreignkey_list = Schema::getForeignKeys('security.role_permissions');
+            $find = array_search('security_role_permissions_permission_id_foreign', array_column(json_decode(json_encode($foreignkey_list), TRUE), 'name'));
             if (!Schema::hasIndex('security.role_permissions', 'security_role_permissions_permission_id_foreign') && !is_numeric($find))
                 Schema::table('security.role_permissions', function (Blueprint $table) {
-                    $table->foreign('permission_id')->references('id')->on('security.permissions')->onDelete('restrict');
+                    $table->foreign('permission_id')->references('id')->on('security.permissions')->onDelete('cascade');
                 });
-            $foreignkey_list=Schema::getForeignKeys('security.role_permissions');
-            $find=array_search('security_role_permissions_role_id_foreign', array_column(json_decode(json_encode($foreignkey_list),TRUE), 'name'));
+            $foreignkey_list = Schema::getForeignKeys('security.role_permissions');
+            $find = array_search('security_role_permissions_role_id_foreign', array_column(json_decode(json_encode($foreignkey_list), TRUE), 'name'));
             if (!Schema::hasIndex('security.role_permissions', 'security_role_permissions_role_id_foreign') && !is_numeric($find))
                 Schema::table('security.role_permissions', function (Blueprint $table) {
-                    $table->foreign('role_id')->references('id')->on('security.roles')->onDelete('restrict');
+                    $table->foreign('role_id')->references('id')->on('security.roles')->onDelete('cascade');
                 });
-           };
+        };
 
     }
 
-   public function down()
+    public function down()
     {
         Schema::dropIfExists('security.role_permissions');
 
