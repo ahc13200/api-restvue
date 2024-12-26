@@ -9,7 +9,8 @@ use Ronu\RestGenericClass\Core\Requests\BaseFormRequest;
 class AreaRequest extends BaseFormRequest
 {
 
-    const PATH_RULE=__DIR__ . '/../../Rules/AreaRule.php';
+    const PATH_RULE = __DIR__ . '/../../Rules/AreaRule.php';
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -26,6 +27,25 @@ class AreaRequest extends BaseFormRequest
     public function rules(): array
     {
         return $this->parseRules(self::PATH_RULE);
+    }
+
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El campo nombre es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 30 caracteres.',
+            'code.required' => 'El campo código es obligatorio.',
+            'code.max' => 'El código no puede tener más de 10 caracteres.',
+            'code.unique' => 'El código ya está en uso.',
+            'description.max' => 'La descripción no puede tener más de 300 caracteres.',
+            'id.unique' => 'Este ID ya está en uso.',
+        ];
     }
 
 }

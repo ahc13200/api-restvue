@@ -1,14 +1,14 @@
 <?php
 return [
     'create' => [
-        'name' => 'nullable|max:255',
-        'price' => 'nullable',
+        'name' => 'required|max:30|unique:' . $this->connection . '.restaurant.offers,name',
+        'price' => 'required',
         'image' => 'nullable|max:255'
     ],
     'update' => [
         'id' => '|unique:' . $this->connection . '.restaurant.offers,id,' . $this->id . ',id',
-        'name' => 'nullable|max:255',
-        'price' => 'nullable',
+        'name' => 'required|max:30||unique:' . $this->connection . '.restaurant.offers,name,' . $this->id . ',id',
+        'price' => 'required',
         'image' => 'nullable|max:255'
     ]
 ];

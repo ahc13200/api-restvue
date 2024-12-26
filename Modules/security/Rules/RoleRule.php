@@ -1,13 +1,13 @@
 <?php
-          return [
-            'create'=>[
-                'name' =>'required|max:300',
-                'description' =>'nullable|max:300'
-            ],
-            'update'=>[
-                'id' =>'|unique:'.$this->connection.'.security.roles,id,'.$this->id.',id',
-                'name' =>'max:300',
-                'description' =>'nullable|max:300'
-            ]
-        ];
+return [
+    'create' => [
+        'name' => 'required|max:30||unique:' . $this->connection . '.security.roles,name',
+        'description' => 'nullable|max:300'
+    ],
+    'update' => [
+        'id' => '|unique:' . $this->connection . '.security.roles,id,' . $this->id . ',id',
+        'name' => 'required|max:30|unique:' . $this->connection . '.security.roles,name,' . $this->id . ',id',
+        'description' => 'nullable|max:300'
+    ]
+];
 
