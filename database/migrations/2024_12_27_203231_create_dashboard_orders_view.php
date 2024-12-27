@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         $db = \Illuminate\Support\Facades\DB::connection('db');
-        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_orders_view CASCADE;");
+        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_orders CASCADE;");
 
-        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_orders_view(current_month_orders,previous_month_orders,orders_difference,percentage_change) as 
+        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_orders(current_month_orders,previous_month_orders,orders_difference,percentage_change) as 
          SELECT current_month.total_orders AS current_month_orders,
     previous_month.total_orders AS previous_month_orders,
     current_month.total_orders - previous_month.total_orders AS orders_difference,
@@ -37,6 +37,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('dashboard.dashboard_orders_view');
+        Schema::dropIfExists('dashboard.dashboard_orders');
     }
 };
