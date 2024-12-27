@@ -58,7 +58,7 @@ class Client extends BaseModel
      * @var bool
      */
 
-    public $timestamps = false;
+    public $timestamps = true;
 
 
     /**
@@ -78,6 +78,8 @@ class Client extends BaseModel
     protected $perPage = 15;
 
     protected $appends = [];
+
+    protected $hidden = ['created_at', 'updated_at'];
 
     /**
      * Model Class Name
