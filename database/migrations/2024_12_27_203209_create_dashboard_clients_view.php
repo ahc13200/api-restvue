@@ -13,9 +13,9 @@ return new class extends Migration
     {
         $db=\Illuminate\Support\Facades\DB::connection('db');
         $db->statement('CREATE SCHEMA IF NOT EXISTS dashboard');
-        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_clients_view CASCADE;");
+        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_clients CASCADE;");
 
-        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_clients_view(current_month_clients,previous_month_clients,clients_difference,percentage_change) as 
+        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_clients(current_month_clients,previous_month_clients,clients_difference,percentage_change) as 
         SELECT current_month.client_count AS current_month_clients,
     previous_month.client_count AS previous_month_clients,
     current_month.client_count - previous_month.client_count AS clients_difference,
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dashboard.dashboard_clients_view');
+        Schema::dropIfExists('dashboard.dashboard_clients');
     }
 };

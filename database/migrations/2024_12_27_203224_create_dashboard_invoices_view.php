@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         $db = \Illuminate\Support\Facades\DB::connection('db');
-        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_invoices_view CASCADE;");
+        $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_invoices CASCADE;");
 
-        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_invoices_view(current_month_invoices,previous_month_invoices,invoices_difference,percentage_change) as 
+        $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_invoices(current_month_invoices,previous_month_invoices,invoices_difference,percentage_change) as 
          SELECT current_month.total_invoices AS current_month_invoices,
     previous_month.total_invoices AS previous_month_invoices,
     current_month.total_invoices - previous_month.total_invoices AS invoices_difference,
@@ -37,6 +37,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('dashboard.dashboard_invoices_view');
+        Schema::dropIfExists('dashboard.dashboard_invoices');
     }
 };
