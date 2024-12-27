@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use Modules\stocktaking\Services\ReportsService;
+use Modules\dashboard\Services\DashboardService;
 
 class TelegramBotService
 {
-    public function __construct(private readonly ReportsService $reportService)
+    public function __construct(private readonly DashboardService $reportService)
     {
     }
 

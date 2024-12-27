@@ -1,7 +1,8 @@
 {
-  "nomenclature": true,
-  "stocktaking": true,
-  "security": true,
   "admin": true,
-  "restaurant": true
+  "dashboard": true,
+  "nomenclature": true,
+  "restaurant": true,
+  "security": true,
+  "stocktaking": true
 }
