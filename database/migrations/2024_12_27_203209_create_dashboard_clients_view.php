@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         $db=\Illuminate\Support\Facades\DB::connection('db');
+        $db->statement('CREATE SCHEMA IF NOT EXISTS dashboard');
         $db->statement("DROP VIEW IF EXISTS dashboard.dashboard_clients_view CASCADE;");
 
         $db->statement("CREATE OR REPLACE VIEW  dashboard.dashboard_clients_view(current_month_clients,previous_month_clients,clients_difference,percentage_change) as 
