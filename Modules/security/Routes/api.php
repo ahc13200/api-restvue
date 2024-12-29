@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => 'security', 'middleware' => 'auth:api'], function () {
+    Route::get('permission/auth_user', 'PermissionController@getPermissionAuthUser');
+});
+
+
 Route::group(['prefix' => 'security', 'middleware' => ['auth:api', 'checkAccess']], function () {
     Route::get('/', function () {
         return ["message" => "security"];
@@ -21,7 +26,6 @@ Route::group(['prefix' => 'security', 'middleware' => ['auth:api', 'checkAccess'
 
 
     /*Permissions*/
-    Route::get('permission/auth_user', 'PermissionController@getPermissionAuthUser');
     Route::post('permission/validate', 'PermissionController@actionValidate');
     Route::post('permission/update_multiple', 'PermissionController@updateMultiple');
     Route::get('permission/export_excel', 'PermissionController@export_excel');
@@ -65,6 +69,5 @@ Route::group(['prefix' => 'security', 'middleware' => ['auth:api', 'checkAccess'
     Route::get('user/export_pdf', 'UserController@export_pdf');
     Route::delete('user/delete_by_id', 'UserController@deleteById');
     Route::resource('user', 'UserController');
-
 
 });
