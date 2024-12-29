@@ -80,6 +80,8 @@ class Role extends BaseModel
 
     protected $appends = [];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     /**
      * Model Class Name
      *
@@ -93,7 +95,8 @@ class Role extends BaseModel
      */
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'updated_at'
     ];
 
     /**
