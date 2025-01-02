@@ -55,3 +55,7 @@ Route::group(['prefix' => 'nomenclature', 'middleware' => ['auth:api', 'checkAcc
 
 
 });
+
+Route::group(['middleware' => 'api', 'prefix' => 'nomenclature'], function () {
+    Route::get('delivery_list', 'DeliveryController@index');
+});
