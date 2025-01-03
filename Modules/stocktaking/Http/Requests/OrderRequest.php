@@ -9,7 +9,8 @@ use Ronu\RestGenericClass\Core\Requests\BaseFormRequest;
 class OrderRequest extends BaseFormRequest
 {
 
-    const PATH_RULE=__DIR__ . '/../../Rules/OrderRule.php';
+    const PATH_RULE = __DIR__ . '/../../Rules/OrderRule.php';
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -26,6 +27,23 @@ class OrderRequest extends BaseFormRequest
     public function rules(): array
     {
         return $this->parseRules(self::PATH_RULE);
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'date.date' => 'El campo fecha debe ser una fecha válida.',
+            'type_payment.required' => 'El campo tipo de pago es requerido.',
+            'type_payment.max' => 'El campo tipo de pago no puede tener más de 255 caracteres.',
+            'client_id.required' => 'El campo cliente es obligatorio.',
+            'client_id.exists' => 'El cliente seleccionado no es válido.',
+            'id.unique' => 'Este ID ya está en uso.',
+        ];
     }
 
 }

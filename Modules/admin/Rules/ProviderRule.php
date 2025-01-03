@@ -1,21 +1,32 @@
 <?php
 return [
     'create' => [
-        'name' => 'required|max:300',
-        'identification' => 'nullable|max:300',
-        'phone' => 'nullable|max:20unique:' . $this->connection . '.admin.providers',
-        'email' => 'required|max:200|required|max:30|unique:' . $this->connection . '.admin.providers',
-        'city' => 'nullable|max:255',
-        'product_type' => 'nullable|max:255',
+        'name' => 'required|max:30',
+        'identification' => 'nullable|max:15',
+        'phone' => 'nullable|max:8|unique:' . $this->connection . '.admin.providers',
+        'email' => 'required|max:30|unique:' . $this->connection . '.admin.providers',
+        'country' => 'required|max:30',
+        'city' => 'required|max:30',
+        'classification' => 'nullable|max:10',
+        'fax' => 'nullable|max:15',
+        'observations' => 'nullable|max:300',
+        'address' => 'nullable|max:50',
+        'postal_code' => 'nullable|max:8|min:5',
     ],
     'update' => [
         'id' => '|unique:' . $this->connection . '.admin.providers,id,' . $this->id . ',id',
-        'name' => 'max:300',
-        'identification' => 'nullable|max:300',
-        'phone' => 'nullable|max:20|unique:' . $this->connection . '.admin.providers,phone,' . $this->id . ',id',
-        'email' => 'max:200|unique:' . $this->connection . '.admin.providers,email,' . $this->id . ',id',
-        'city' => 'nullable|max:255',
-        'product_type' => 'nullable|max:255',
+        'name' => 'max:30',
+        'identification' => 'nullable|max:15',
+        'phone' => 'nullable|max:8|unique:' . $this->connection . '.admin.providers,phone,' . $this->id . ',id',
+        'email' => 'max:30|unique:' . $this->connection . '.admin.providers,email,' . $this->id . ',id',
+        'country' => '|max:255',
+        'city' => '|max:255',
+        'classification' => 'nullable|max:10',
+        'fax' => 'nullable|max:15',
+        'observations' => 'nullable|max:300',
+        'address' => 'nullable|max:50',
+        'postal_code' => 'nullable|max:8|min:5',
     ]
 ];
+
 
