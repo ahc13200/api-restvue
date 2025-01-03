@@ -28,6 +28,8 @@ return [
             'key' => env('PUSHER_APP_KEY'),
             'secret' => env('PUSHER_APP_SECRET'),
             'path' => env('PUSHER_APP_PATH'),
+            'port' => env('PUSHER_PORT'),
+            'host' => env('PUSHER_HOST'),
             'capacity' => null,
             'enable_client_messages' => true,
             'enable_statistics' => true,
