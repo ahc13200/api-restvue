@@ -28,4 +28,16 @@ class RequestRequest extends BaseFormRequest
         return $this->parseRules(self::PATH_RULE);
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+
+        ];
+    }
+
 }

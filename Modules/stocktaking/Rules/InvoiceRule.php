@@ -1,7 +1,7 @@
 <?php
 return [
     'create' => [
-        'provider_id' => 'nullable|exists:' . $this->connection . '.admin.providers,id',
+        'provider_id' => 'required|exists:' . $this->connection . '.admin.providers,id',
         'amount' => 'nullable',
         'code' => 'required|unique:' . $this->connection . '.stocktaking.invoices,code',
         'date' => 'nullable',

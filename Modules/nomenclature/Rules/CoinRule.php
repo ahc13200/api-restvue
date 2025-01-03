@@ -6,7 +6,7 @@ return [
     ],
     'update' => [
         'id' => '|unique:' . $this->connection . '.nomenclature.coins,id,' . $this->id . ',id',
-        'name' => 'max:300',
+        'name' => 'max:30',
         'acronym' => 'max:20|unique:' . $this->connection . '.nomenclature.coins,acronym,' . $this->id . ',id'
     ]
 ];
