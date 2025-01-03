@@ -160,6 +160,19 @@ class Order extends BaseModel
             $model->status = "en proceso";
             $model->delivery_amount = request()->get('is_delivery') ? request()->get('delivery_amount') : null;
             $model->date = request()->get('date') ? request()->get('date') : Carbon::now();
+
+            //client
+            if (request()->get('created_in') === 'shopping') {
+                $data_client = request()->get('client');
+                $client = Client::query()->where('name', $data_client['name'])
+                    ->where('phone', $data_client['phone'])->first();
+                if ($client)
+                    $model->client_id = $client->id;
+                else {
+                    $client = Client::create($data_client);
+                    $model->client_id = $client->id;
+                }
+            }
         });
 
         static::created(function (Order $model) use ($offers) {
@@ -178,8 +191,6 @@ class Order extends BaseModel
                 $model->array_order_offers()->updateOrCreate(['offer_id' => $offer_id], $offer);
             }
         });
-
     }
-
 }
 

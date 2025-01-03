@@ -81,3 +81,7 @@ Route::group(['prefix' => 'stocktaking', 'middleware' => ['auth:api', 'checkAcce
 
 
 });
+
+Route::group(['middleware' => 'api', 'prefix' => 'stocktaking'], function () {
+    Route::post('new_order', 'OrderController@store');
+});
