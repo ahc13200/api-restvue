@@ -38,8 +38,8 @@ return [
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => env('PUSHER_USE_TLS'),
-                'verify' => true,
-                'encrypted' => true,
+                'verify' => false,
+                'encrypted' => false,
                 'host' => env('PUSHER_HOST'),
                 'port' => env('PUSHER_PORT'),
                 'scheme' => env('PUSHER_SCHEME'),
