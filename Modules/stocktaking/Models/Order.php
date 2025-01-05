@@ -176,7 +176,12 @@ class Order extends BaseModel
         });
 
         static::created(function (Order $model) use ($offers) {
-            $model->array_order_offers()->createMany($offers);
+            $model->array_order_offers()->createMany(
+                collect($offers)->map(fn($offer) => [
+                    'offer_id' => $offer['id'] ?? $offer['offer_id'],
+                    'quantity' => $offer['quantity']
+                ])
+            );
         });
 
         static::updating(function (Order $model) {

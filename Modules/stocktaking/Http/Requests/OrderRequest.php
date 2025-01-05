@@ -40,8 +40,9 @@ class OrderRequest extends BaseFormRequest
             'date.date' => 'El campo fecha debe ser una fecha válida.',
             'type_payment.required' => 'El campo tipo de pago es requerido.',
             'type_payment.max' => 'El campo tipo de pago no puede tener más de 255 caracteres.',
-            'client_id.required' => 'El campo cliente es obligatorio.',
+            'client_id.required_if' => 'El campo cliente es obligatorio.',
             'client_id.exists' => 'El cliente seleccionado no es válido.',
+            'client.required_if' => 'El array client es obligatorio',
             'id.unique' => 'Este ID ya está en uso.',
         ];
     }
