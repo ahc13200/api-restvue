@@ -30,12 +30,12 @@ class OrderService extends BaseService
                 "- Productos:\n";
 
             foreach ($order->array_offers as $offer) {
-                $message .= "     - {$offer->name}: {$offer->price} CUP\n";
+                $message .= "     - {$offer->quantity} {$offer->name}: {$offer->price} CUP\n";
             }
 
             $message .= "\n" .
-                "- Costo de domicilio: {$order->delivery_amount} CUP\n" .
                 "- Total: {$order->total_amount} CUP\n\n" .
+                "- Costo de domicilio: {$order->delivery_amount} CUP\n\n" .
                 "- Tipo de pago: {$order->type_payment} CUP\n\n" .
                 "Por favor, confirme mi pedido. ¡Gracias!";
 
