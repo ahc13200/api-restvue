@@ -33,7 +33,7 @@ class OrderService extends BaseService
                 $message .= "     - {$offer->quantity} {$offer->name}: {$offer->price} CUP\n";
             }
 
-            $total = $order->delivery_amount + $order->delivery_amount;
+            $total = $order->delivery_amount + $order->total_amount;
             $message .= "\n" .
                 "- Costo de productos: {$order->total_amount} CUP\n" .
                 "- Costo de domicilio: {$order->delivery_amount} CUP\n" .
