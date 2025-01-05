@@ -42,7 +42,7 @@ class OrderService extends BaseService
                 "Por favor, confirme mi pedido. ¡Gracias!";
 
             $encodedMessage = rawurlencode($message);
-            $number = env('WHATSAPP_NUMBER');
+            $number = 50529237;
 
             return ['success' => true, 'url' => "https://wa.me/{$number}?text={$encodedMessage}"];
         }

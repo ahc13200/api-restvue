@@ -123,5 +123,17 @@ class Client extends BaseModel
         return $rules[$scenario];
     }
 
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updating(function (Client $model) {
+            if ($model->isDirty('registered_in')) {
+                $model->registered_in = $model->getOriginal('registered_in');
+            }
+        });
+    }
+
 }
 

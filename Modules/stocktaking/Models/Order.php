@@ -185,6 +185,10 @@ class Order extends BaseModel
         });
 
         static::updating(function (Order $model) {
+            if ($model->isDirty('created_in')) {
+                $model->created_in = $model->getOriginal('created_in');
+            }
+
             $model->delivery_amount = request()->get('is_delivery') ? request()->get('delivery_amount') : null;
         });
 
