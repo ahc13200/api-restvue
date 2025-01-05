@@ -33,9 +33,11 @@ class OrderService extends BaseService
                 $message .= "     - {$offer->quantity} {$offer->name}: {$offer->price} CUP\n";
             }
 
+            $total = $order->delivery_amount + $order->delivery_amount;
             $message .= "\n" .
-                "- Total: {$order->total_amount} CUP\n\n" .
-                "- Costo de domicilio: {$order->delivery_amount} CUP\n\n" .
+                "- Costo de productos: {$order->total_amount} CUP\n" .
+                "- Costo de domicilio: {$order->delivery_amount} CUP\n" .
+                "- Total a pagar: {$total} CUP\n\n" .
                 "- Tipo de pago: {$order->type_payment} CUP\n\n" .
                 "Por favor, confirme mi pedido. ¡Gracias!";
 
