@@ -22,6 +22,17 @@
       'WebSocketRouter' => 'BeyondCode\\LaravelWebSockets\\Facades\\WebSocketRouter',
     ),
   ),
+  'defstudio/telegraph' => 
+  array (
+    'aliases' => 
+    array (
+      'Telegraph' => 'DefStudio\\Telegraph\\Facades\\Telegraph',
+    ),
+    'providers' => 
+    array (
+      0 => 'DefStudio\\Telegraph\\TelegraphServiceProvider',
+    ),
+  ),
   'irazasyed/telegram-bot-sdk' => 
   array (
     'aliases' => 
@@ -63,13 +74,13 @@
   ),
   'maatwebsite/excel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    ),
     'aliases' => 
     array (
       'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
+    ),
+    'providers' => 
+    array (
+      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
