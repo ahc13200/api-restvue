@@ -17,7 +17,7 @@ return [
         'lastname' => 'nullable|max:30',
         'username' => 'required|max:20|unique:' . $this->connection . '.security.users,username,' . $this->user_id . ',id',
         'password' => 'max:12',
-        'email' => 'required|max:30|unique:' . $this->connection . '.security.users,email,' . $this->id . ',id'
+        'email' => 'required|max:30|unique:' . $this->connection . '.security.users,email,' . $this->user_id . ',id'
     ]
 ];
 
