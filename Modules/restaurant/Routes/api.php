@@ -61,9 +61,8 @@ Route::group(['prefix' => 'restaurant', 'middleware' => ['auth:api', 'checkAcces
 
 });
 
-Route::group(['middleware' => 'api', 'prefix' => 'restaurant'], function () {
+Route::group(['middleware' => ['api', 'restrictIPAccess'], 'prefix' => 'restaurant'], function () {
     Route::get('menu_list', 'MenuController@index');
     Route::get('offer_detail/{offer_id}', 'OfferController@show');
     Route::get('popular_offers', 'OfferController@popular_dishes');
-
 });
