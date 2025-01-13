@@ -19,7 +19,7 @@ class RestrictIPAccess
         $allowedIp = env('IP_VPS');
 
         if ($request->ip() !== $allowedIp) {
-            abort(404, 'not found' . $request->ip() . ' ' . 'ipVPS' . $allowedIp);
+            abort(404, 'Not Found');
         }
 
         return $next($request);
