@@ -76,7 +76,6 @@ class Kernel extends HttpKernel
         'data.transform' => \App\Http\Middleware\TransformData::class,
         'apikey' => \App\Http\Middleware\ApiKey::class,
         'checkAccess' => \App\Http\Middleware\CheckAccess::class,
-        'restrictIPAccess' => \App\Http\Middleware\RestrictIPAccess::class,
     ];
 }
 
