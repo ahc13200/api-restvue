@@ -10,8 +10,8 @@ class RestrictIPAccess
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -19,7 +19,8 @@ class RestrictIPAccess
         $allowedIp = env('IP_VPS');
 
         if ($request->ip() !== $allowedIp) {
-            abort(404, 'Not found');
+            return $request->ip();
+//            abort(404, 'Not found');
         }
 
         return $next($request);
