@@ -3,6 +3,7 @@
 namespace Modules\restaurant\Http\Controllers;
 
 use App\Http\Controllers\BaseRestController;
+use Illuminate\Http\Request;
 
 class OfferController extends BaseRestController
 {
@@ -23,6 +24,13 @@ class OfferController extends BaseRestController
     public function popular_dishes()
     {
         $offers = $this->service->popular_offers();
+        return response()->json($offers, 200);
+    }
+
+    public function search_offers(Request $request)
+    {
+        $name = $request->query('name');
+        $offers = $this->service->searchOffers($name);
         return response()->json($offers, 200);
     }
 
