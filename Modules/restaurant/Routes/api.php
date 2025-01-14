@@ -65,4 +65,5 @@ Route::group(['middleware' => ['api', 'restrictIpAccess'], 'prefix' => 'restaura
     Route::get('menu_list', 'MenuController@index');
     Route::get('offer_detail/{offer_id}', 'OfferController@show');
     Route::get('popular_offers', 'OfferController@popular_dishes');
+    Route::get('search', 'OfferController@search_offers');
 });

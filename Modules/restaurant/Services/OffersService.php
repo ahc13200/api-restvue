@@ -21,5 +21,13 @@ class OffersService extends BaseService
         return Popular_offers_view::all();
     }
 
+    public function searchOffers($text)
+    {
+        return Offer::query()
+            ->where('name', 'ilike', '%' . $text . '%')
+            ->orWhere('description', 'ilike', '%' . $text . '%')
+            ->get();
+    }
+
 }
 
