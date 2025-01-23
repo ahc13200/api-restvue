@@ -10,9 +10,8 @@ namespace Modules\admin\Models;
 
 
 use App\Models\BaseModel;
-
-use Exception;
 use App\Scopes\NonDeletedScope;
+use Exception;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\security\Models\User;
 
@@ -103,7 +102,7 @@ class Area extends BaseModel
      */
     public function array_worker_area()
     {
-        return $this->hasMany(Worker_areaTurn::class, 'area_id', 'id');
+        return $this->hasMany(Worker_area_turn::class, 'area_id', 'id');
     }
 
 
@@ -119,9 +118,9 @@ class Area extends BaseModel
      */
     public function array_worker()
     {
-        return $this->belongsToMany(User::class, 'worker_area', 'area_id', 'worker_id')
+        return $this->belongsToMany(Worker::class, 'worker_area', 'area_id', 'worker_id')
             ->as('worker_area')
-            ->withPivot(Worker_areaTurn::columns)
+            ->withPivot(Worker_area_turn::columns)
             ->withGlobalScope('non_deleted', new NonDeletedScope());
     }
 
