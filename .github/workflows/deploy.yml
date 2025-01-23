@@ -17,10 +17,6 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-          # Iniciar el agente SSH y cargar la clave
-          eval $(ssh-agent -s)
-          ssh-add ~/.ssh/id_rsa
-
       # 2. Desplegar en el VPS
       - name: Desplegar código al VPS
         run: |
