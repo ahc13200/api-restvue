@@ -1,0 +1,53 @@
+name: CI/CD Deployment for Laravel API Restvue
+
+on:
+  push:
+    branches:
+      - main  # Solo ejecutará este workflow al hacer push en la rama `main`.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Configurar SSH para conectarse al VPS
+      - name: Configurar SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # 2. Desplegar en el VPS
+      - name: Desplegar código al VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no deploy@<IP_DEL_VPS> << 'EOF'
+            echo "Navegando al directorio del proyecto"
+            cd /var/www/api-restvue
+            echo "Haciendo pull de los últimos cambios"
+            git pull origin main
+            echo "Instalando dependencias de Composer"
+            composer install --no-dev --optimize-autoloader
+            echo "Ejecutando migraciones"
+            php artisan migrate --force
+            echo "Limpiando y cacheando configuración"
+            php artisan config:clear
+            php artisan config:cache
+            php artisan route:cache
+            echo "Despliegue finalizado"
+          EOF
+
+      # 3. Notificar éxito en Telegram
+      - name: Notificar éxito en Telegram
+        if: success()
+        run: |
+          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="? Despliegue exitoso de Laravel API en el VPS ??."
+
+      # 4. Notificar fallo en Telegram
+      - name: Notificar fallo en Telegram
+        if: failure()
+        run: |
+          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="? El despliegue falló. Revisa el flujo de CI/CD. ??"
