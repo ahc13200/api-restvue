@@ -20,20 +20,14 @@ jobs:
       # 2. Desplegar en el VPS
       - name: Desplegar código al VPS
         run: |
-          `sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -v -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF
-          echo "Navegando al directorio del proyecto"
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -v -o StrictHostKeyChecking=no root@147.79.78.97 <<`EOF`
           cd /var/www/api-restvue
-          echo "Haciendo pull de los últimos cambios"
           git pull origin main
-          echo "Instalando dependencias de Composer"
           composer install --no-dev --optimize-autoloader
-          echo "Ejecutando migraciones"
           php artisan migrate --force
-          echo "Limpiando y cacheando configuración"
           php artisan config:clear
           php artisan config:cache
-          php artisan route:cache
-          echo "Despliegue finalizado"`
+          php artisan route:cach
           EOF
 
       # 3. Notificar éxito en Telegram
