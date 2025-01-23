@@ -20,7 +20,7 @@ jobs:
       # 2. Desplegar en el VPS
       - name: Desplegar código al VPS
         run: |
-          ssh -o StrictHostKeyChecking=no deploy@<IP_DEL_VPS> << 'EOF'
+          ssh -o StrictHostKeyChecking=no deploy@147.79.78.97 << 'EOF'
             echo "Navegando al directorio del proyecto"
             cd /var/www/api-restvue
             echo "Haciendo pull de los últimos cambios"
