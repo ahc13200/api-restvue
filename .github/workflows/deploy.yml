@@ -3,7 +3,7 @@ name: CI/CD Deployment for Laravel API Restvue
 on:
   push:
     branches:
-      - main  # Ejecutar solo cuando haya cambios en la rama `main`.
+      - main
 
 jobs:
   deploy:
@@ -26,7 +26,7 @@ jobs:
       # 3. Conectar y desplegar al VPS
       - name: Desplegar al VPS
         run: |
-          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF-
           echo "Navegando al directorio del proyecto"
           cd /var/www/api-restvue
           echo "Haciendo pull de los últimos cambios"
@@ -40,16 +40,16 @@ jobs:
           php artisan config:cache
           php artisan route:cache
           echo "Despliegue finalizado"
-          EOF
+          EOF-
 
       # 4. Notificar estado en Telegram
       - name: Notificar estado en Telegram
-        if: always() # Notificar éxito o fallo
+        if: always()
         run: |
-          if [ ${{ job.status }} == "success" ]; then
-            MESSAGE="Despliegue exitoso de Laravel API Restvue en el VPS."
+          if [ "${{ job.status }}" == "success" ]; then
+            MESSAGE="✅ Despliegue exitoso de Laravel API Restvue en el VPS."
           else
-            MESSAGE="El despliegue falló. Revisa el flujo de CI/CD."
+            MESSAGE="❌ El despliegue falló. Revisa el flujo de CI/CD."
           fi
           curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
