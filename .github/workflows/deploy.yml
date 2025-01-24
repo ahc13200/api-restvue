@@ -3,7 +3,7 @@ name: CI/CD Deployment for Laravel API Restvue
 on:
   push:
     branches:
-      - main  # Solo ejecutará este workflow al hacer push en la rama `main`.
+      - main  # Ejecutar solo cuando haya cambios en la rama `main`.
 
 jobs:
   deploy:
@@ -17,10 +17,16 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      # 2. Desplegar en el VPS
-      - name: Desplegar código al VPS
+      # 2. Instalar sshpass
+      - name: Instalar sshpass
         run: |
-          `sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -v -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
+      # 3. Conectar y desplegar al VPS
+      - name: Desplegar al VPS
+        run: |
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF
           echo "Navegando al directorio del proyecto"
           cd /var/www/api-restvue
           echo "Haciendo pull de los últimos cambios"
@@ -33,21 +39,18 @@ jobs:
           php artisan config:clear
           php artisan config:cache
           php artisan route:cache
-          echo "Despliegue finalizado"`
+          echo "Despliegue finalizado"
           EOF
 
-      # 3. Notificar éxito en Telegram
-      - name: Notificar éxito en Telegram
-        if: success()
+      # 4. Notificar estado en Telegram
+      - name: Notificar estado en Telegram
+        if: always() # Notificar éxito o fallo
         run: |
+          if [ ${{ job.status }} == "success" ]; then
+            MESSAGE="Despliegue exitoso de Laravel API Restvue en el VPS."
+          else
+            MESSAGE="El despliegue falló. Revisa el flujo de CI/CD."
+          fi
           curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-          -d text="Despliegue exitoso de Laravel API Restvue en el VPS."
-
-      # 4. Notificar fallo en Telegram
-      - name: Notificar fallo en Telegram
-        if: failure()
-        run: |
-          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-          -d text="El despliegue falló. Revisa el flujo de CI/CD"
+          -d text="$MESSAGE"
