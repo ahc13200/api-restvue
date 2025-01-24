@@ -26,7 +26,8 @@ jobs:
       # 3. Conectar y desplegar al VPS
       - name: Desplegar al VPS
         run: |
-          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@147.79.78.97 <<EOF-
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@147.79.78.97 << 'EOC'
+          bash << 'EOF'
           echo "Navegando al directorio del proyecto"
           cd /var/www/api-restvue
           echo "Haciendo pull de los últimos cambios"
@@ -40,7 +41,8 @@ jobs:
           php artisan config:cache
           php artisan route:cache
           echo "Despliegue finalizado"
-          EOF-
+          EOF
+          EOC
 
       # 4. Notificar estado en Telegram
       - name: Notificar estado en Telegram
