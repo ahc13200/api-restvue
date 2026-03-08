@@ -1,14 +1,14 @@
 <?php return array (
   'barryvdh/laravel-dompdf' => 
   array (
+    'aliases' => 
+    array (
+      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+    ),
     'providers' => 
     array (
       0 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
-      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
     ),
   ),
   'beyondcode/laravel-websockets' => 
@@ -106,13 +106,20 @@
   ),
   'nwidart/laravel-modules' => 
   array (
+    'aliases' => 
+    array (
+      'Module' => 'Nwidart\\Modules\\Facades\\Module',
+    ),
     'providers' => 
     array (
       0 => 'Nwidart\\Modules\\LaravelModulesServiceProvider',
     ),
-    'aliases' => 
+  ),
+  'ronu/rest-generic-class' => 
+  array (
+    'providers' => 
     array (
-      'Module' => 'Nwidart\\Modules\\Facades\\Module',
+      0 => 'Ronu\\RestGenericClass\\Core\\Providers\\RestGenericClassServiceProvider',
     ),
   ),
   'spatie/laravel-ignition' => 
