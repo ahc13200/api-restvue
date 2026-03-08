@@ -1,1 +1,91 @@
-{\n    \"name\": \"stocktaking/amanda\",\n    \"type\": \"project\",\n    \"description\": \"\",\n    \"keywords\": [\"laravel\", \"framework\"],\n    \"license\": \"MIT\",\n    \"require\": {\n        \"php\": \"^8.1\",\n        \"barryvdh/laravel-dompdf\": \"^3.1\",\n        \"beyondcode/laravel-websockets\": \"^1.14\",\n        \"defstudio/telegraph\": \"^1.56\",\n        \"doctrine/dbal\": \"^3.6\",\n        \"guzzlehttp/guzzle\": \"^7.9\",\n        \"halaxa/json-machine\": \"^1.1\",\n        \"irazasyed/telegram-bot-sdk\": \"^3.14\",\n        \"laravel/framework\": \"^10.48\",\n        \"laravel/passport\": \"^11.10\",\n        \"laravel/sanctum\": \"^3.3\",\n        \"laravel/tinker\": \"^2.8\",\n        \"maatwebsite/excel\": \"^3.1\",\n        \"mbezhanov/faker-provider-collection\": \"^2.0\",\n        \"nwidart/laravel-modules\": \"^10.0\",\n        \"pusher/pusher-php-server\": \"^7.2\",\n        \"ronu/rest-generic-class\": \"^1.0.1\",\n        \"tymon/jwt-auth\": \"^2.0\"\n    },\n    \"require-dev\": {\n        \"fakerphp/faker\": \"^1.23\",\n        \"laravel/pint\": \"^1.24\",\n        \"laravel/sail\": \"^1.41\",\n        \"mockery/mockery\": \"^1.6\",\n        \"nunomaduro/collision\": \"^7.12\",\n        \"phpunit/phpunit\": \"^10.5\",\n        \"spatie/laravel-ignition\": \"^2.9\"\n    },\n    \"autoload\": {\n        \"psr-4\": {\n            \"App\\\\\": \"app/\",\n            \"Database\\\\Factories\\\\\": \"database/factories/\",\n            \"Database\\\\Seeders\\\\\": \"database/seeders/\",\n            \"Modules\\\\\": \"Modules/\"\n        }\n    },\n    \"scripts\": {\n        \"post-autoload-dump\": [\n            \"Illuminate\\\\Foundation\\\\ComposerScripts::postAutoloadDump\",\n            \"@php artisan package:discover --ansi\"\n        ],\n        \"post-update-cmd\": [\n            \"@php artisan vendor:publish --tag=laravel-assets --ansi --force\"\n        ],\n        \"post-root-package-install\": [\n            \"@php -r \\\"file_exists('.env') || copy('.env.example', '.env');\\\"\"\n        ],\n        \"post-create-project-cmd\": [\n            \"@php artisan key:generate --ansi\"\n        ],\n        \"post-install-cmd\": [\n            \"@php artisan key:generate --ansi\",\n            \"@php artisan cache:clear\",\n            \"@php artisan jwt:secret\",\n            \"@php artisan storage:link\",\n            \"@composer dumpautoload\"\n        ]    },\n    \"extra\": {\n        \"laravel\": {\n            \"dont-discover\": []\n        }\n    },\n    \"config\": {\n        \"optimize-autoloader\": true,\n        \"preferred-install\": \"dist\",\n        \"sort-packages\": true,\n        \"allow-plugins\": {\n            \"pestphp/pest-plugin\": true,\n            \"php-http/discovery\": true\n        }\n    },\n    \"minimum-stability\": \"stable\",\n    \"prefer-stable\": true\n}\n
+{
+    "name": "stocktaking/amanda",
+    "type": "project",
+    "description": "",
+    "keywords": ["laravel", "framework"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "barryvdh/laravel-dompdf": "^3.1",
+        "beyondcode/laravel-websockets": "^1.14",
+        "defstudio/telegraph": "^1.56",
+        "doctrine/dbal": "^3.6",
+        "guzzlehttp/guzzle": "^7.9",
+        "halaxa/json-machine": "^1.1",
+        "irazasyed/telegram-bot-sdk": "^3.14",
+        "laravel/framework": "^10.48",
+        "laravel/passport": "^11.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8",
+        "maatwebsite/excel": "^3.1",
+        "mbezhanov/faker-provider-collection": "^2.0",
+        "nwidart/laravel-modules": "^10.0",
+        "pusher/pusher-php-server": "^7.2",
+        "ronu/rest-generic-class": "^1.0.1",
+        "tymon/jwt-auth": "^2.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pint": "^1.24",
+        "laravel/sail": "^1.41",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^7.12",
+        "phpunit/phpunit": "^10.5.62",
+        "spatie/laravel-ignition": "^2.9"
+    },
+    "conflict": {
+        "symfony/http-foundation": "<6.4.29",
+        "symfony/process": "<6.4.29",
+        "league/commonmark": "<2.8.1",
+        "psy/psysh": "<0.12.19",
+        "paragonie/sodium_compat": "<2.1.1",
+        "phpoffice/phpspreadsheet": "<1.29.7",
+        "firebase/php-jwt": "<6.11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+            "Modules\\": "Modules/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php artisan cache:clear",
+            "@php artisan jwt:secret",
+            "@php artisan storage:link",
+            "@composer dumpautoload"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
